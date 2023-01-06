@@ -1,3 +1,5 @@
+alias ctrlc='xclip -selection c'
+alias ctrlv='xclip -selection c -o'
 
 alias   autodir='printf "\e[?2501h"'
 
