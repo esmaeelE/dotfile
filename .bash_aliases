@@ -81,3 +81,28 @@ xstat() {
     printf "%s\t%s\n" "${crtime}" "${target}"
   done
 }
+
+function digits() {
+        local in; read in;
+        printf "%'d\n" $in
+}
+
+
+function sum_col() {
+        awk '{s+=$1} END {print s}' $1
+}
+
+function fwc() {
+        gawk 'END {print NR}' $1 | digits
+}
+
+alias fls='/bin/ls -1U'
+
+function list_cp() {
+        # first list_of_files, second destination
+        gxargs -a $1 gcp -t $2
+}
+
+alias ls='ls --color=auto'
+
+
