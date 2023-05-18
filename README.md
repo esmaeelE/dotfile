@@ -12,17 +12,19 @@
 
 
 
-doomemacs
+## doomemacs
 
 
-
-emacs can handle bidi text Like Persian and English well. But doomemacs not configured fot that.
-
+Emacs can handle bidi text Like Persian and English well. But DoomEmacs not configured fot that.
 Here is the fix.
 
-enable bidi module in .doom/init.dl and place this linke in config.el and sync doom by running: doom sync
+Enable bidi module in `.doom/init.dl` by removing ;; comment sign
 
-(+bidi-global-mode 1)
+place this line in `config.el`
 
+  ```(+bidi-global-mode 1)```
 
+Sync doom by running `doom sync`
+
+  ```~/.config/emacs/bin/doom sync```
 
