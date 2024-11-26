@@ -28,3 +28,13 @@ Sync doom by running `doom sync`
 
   ```~/.config/emacs/bin/doom sync```
 
+Run only terminal not GUI
+```
+emacs -nw
+```
+
+Change/Preview theme in doomemacs
+```
+SPC h t 
+```
+
