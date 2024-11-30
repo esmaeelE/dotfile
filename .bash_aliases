@@ -105,4 +105,46 @@ function list_cp() {
 
 alias ls='ls --color=auto'
 
+# Set Proxy
+function onproxy() {
+    export {http,https,ftp}_proxy="10.1.220.38:8080"
+    export {HTTP,HTTPS,FTP}_PROXY="10.1.220.38:8080"
+    export no_proxy="127.0.0.1"
+    export NO_PROXY="127.0.0.1"
+#    export {HTTP,HTTPS,FTP}_PROXY="10.1.220.37:8080"
+}
+
+function onproxyi() {
+    export {http,https,ftp}_proxy="172.30.116.9:6060"
+    export {HTTP,HTTPS,FTP}_PROXY="172.30.116.9:6060"
+    export no_proxy="127.0.0.1"
+    export NO_PROXY="127.0.0.1"
+#    export {HTTP,HTTPS,FTP}_PROXY="10.1.220.37:8080"
+}
+
+# Unset Proxy
+function offproxy() {
+    unset {http,https,ftp}_proxy
+    unset {HTTP,HTTPS,FTP}_PROXY
+}
+
+function emacs_set() {
+    mv ~/.emacs~ ~/.emacs
+}
+
+function doom_set() {
+    mv ~/.emacs ~/.emacs~
+}
+
+function clip() {
+    xclip -sel clip
+}
+
+function timer() {
+	date1=`date +%s`; while true; do 
+   		echo -ne "$(date -u --date @$((`date +%s` - $date1)) +%H:%M:%S)\r";
+	done
+}
+
+alias permission="stat --format='%n %a'" 
 
