@@ -1,19 +1,16 @@
 # dotfile
 
-
 ## covert to Persian cal
-
-#echo 2022-11-1 | pcal
-
-
+```
+echo 2022-11-1 | pcal
+```
 ## find current date
 
-# pcal -t 
-
-
+```
+pcal -t 
+```
 
 ## doomemacs
-
 
 Emacs can handle bidi text Like Persian and English well. But DoomEmacs not configured fot that.
 Here is the fix.
