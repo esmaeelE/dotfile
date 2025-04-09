@@ -158,3 +158,136 @@ function timer() {
 }
 
 
+
+# some customize shortcut to do things
+
+alias note='cd /home/esmaeel/dev/publish;vim tmp/.;'
+
+# echo string with literal !@# enclouse inside '' not ""
+# download with http connection provide from apache server is more faster than ssh, scp, rsync
+alias dn='aria2c -c -s16 -x16 -j4'
+# dn http://admin:password@1.1.1.1/nifi.tar.gz
+
+PS1="$ "
+
+
+alias tm="tmux new -s dev"
+alias pb="nc -N paste.ubuntu-ir.org 1337"
+alias ctrlc='xclip -selection c'
+alias ctrlv='xclip -selection c -o'
+
+# write fucntion get time
+#function time_n() {
+#	curl 'http://worldtimeapi.org/api/timezone/America/New_York'; 
+#}
+
+alias get_time=' curl "http://worldtimeapi.org/api/timezone/America/New_York" | python3 -c "import sys, json; print (json.load(sys.stdin)["datetime"].split("T")[1].split(".")[0])" '
+
+##########################################################################################
+# poorman password manager, use middle click and three way of copy paste in GNU/Linux
+##########################################################################################
+
+address="/home/esmaeel/share/permissions/secret/vcen"
+
+v_usr=$(sed '1q;d' ${address})
+v_pass=$(sed '2q;d' ${address})
+
+alias pass_us_vc="xclip -sel c <<< '${v_usr}'"
+alias pass_vcen="xclip -sel c <<< '${v_pass}'"
+
+alias pass_gene="xclip -sel c < /home/esmaeel/share/permissions/secret/gen"
+alias pass_new="xclip -sel c < /home/esmaeel/share/permissions/secret/new"
+
+##########################################################################################
+##########################################################################################
+##########################################################################################
+
+
+# for persian in terminal
+alias   autodir='printf "\e[?2501h"'
+autodir
+
+# proxy activation
+# alias proxy_ned='ssh -D 0.0.0.0:9999 linux_manage -N'
+# alias proxy_ned='ssh -D 0.0.0.0:9999 bsd -N'
+# alias proxy_ned='ssh -D 0.0.0.0:8888 linux_manage -N'
+# alias proxy_ned='ssh -D 0.0.0.0:9999 linux_manage -N'
+alias proxy_tor='sudo systemctl restart tor'
+
+# commnad
+alias now="date '+%Y_%m_%d'"
+alias now_j="jdate '+%Y_%m_%d'"
+# alias now_t="date +'%A %Y/%m/%d %T ' ; now ; now_j"
+alias now_t="date +'%A %T ' ; now ; now_j"
+alias ll='ls -ltrh'
+
+export EDITOR='vim'
+
+# Set Proxy
+function onproxy() {
+#    export {http,https,ftp}_proxy="127.0.0.1:9090"
+#    export {HTTP,HTTPS,FTP}_PROXY="127.0.0.1:9090"
+    export {http,https,ftp}_proxy="127.0.0.1:9999"
+    export {HTTP,HTTPS,FTP}_PROXY="127.0.0.1:9999"
+##    export {HTTP,HTTPS,FTP}_PROXY="10.1.220.37:8080"
+}
+
+function onproxy_lantern() {
+    export {http,https,ftp}_proxy="127.0.0.1:36623"
+    export {HTTP,HTTPS,FTP}_PROXY="127.0.0.1:36623"
+#    export {HTTP,HTTPS,FTP}_PROXY="10.1.220.37:8080"
+}
+
+# Unset Proxy
+function offproxy() {
+    unset {http,https,ftp}_proxy
+    unset {HTTP,HTTPS,FTP}_PROXY
+}
+
+
+
+##########################################################################################
+### Pastebin ###
+##########################################################################################
+##########################################################################################
+pastebin()
+{
+    local url='https://paste.c-net.org/'
+    if (( $# )); then
+        local file
+        for file; do
+            curl -s \
+                --data-binary @"$file" \
+                --header "X-FileName: ${file##*/}" \
+                "$url"
+        done
+    else
+        # curl -s --data-binary @- "$url" 
+        curl --data-binary @- "$url" 
+    fi
+}
+
+##########################################################################################
+pasteget()
+{
+    local url='https://paste.c-net.org/'
+    if (( $# )); then
+        local arg
+        for arg; do
+            curl -s "${url}${arg##*/}"
+        done
+    else
+        local arg
+        while read -r arg; do
+            curl -s "${url}${arg##*/}"
+        done
+    fi
+}
+
+##########################################################################################
+##########################################################################################
+##########################################################################################
+
+alias show_hidden="ls -d .[^.]*"
+
+
