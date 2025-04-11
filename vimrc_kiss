@@ -1,0 +1,134 @@
+
+set encoding=utf-8  " The encoding displayed.
+set fileencoding=utf-8  " The encoding written to file.
+
+"support bidirectional language like Persian, Arabic and Hebrew
+set termbidi
+
+"enable mouse in vim
+set mouse=a
+"set mouse=n
+
+"to work with mouse in vim and tmux
+set ttymouse=xterm2
+set ttymouse=sgr
+
+" enable syntax highlighting
+" syntax on what is differ
+syntax enable
+
+" show line numbers
+" Run this to disable :set nonu
+set number
+
+" relative line number
+set relativenumber
+
+" set tabs to insert 4 spaces
+set ts=4
+
+" indent when moving to the next line while writing code
+set autoindent
+
+" expand tabs into spaces
+set expandtab
+
+" when using the >> or << commands, shift lines by 4 spaces
+set shiftwidth=4
+
+" show the matching part of the pair for [] {} and ()
+set showmatch
+
+" change cursor in normal and insert mode
+let &t_SI = "\<esc>[5 q"
+let &t_SR = "\<esc>[3 q"
+let &t_EI = "\<esc>[2 q"
+
+" Better command line completion
+set wildmenu
+
+filetype plugin indent on
+set autoindent
+set cindent
+set title
+set titleold="Terminal"
+set titlestring=%F
+set statusline=%F%m%r%h%w%=(%{&ff}/%Y)\ (line\ %l\/%L,\ col\ %c)\
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+set noexpandtab
+set ruler
+
+" COLOR
+syntax on
+set t_Co=256   " This is may or may not needed.
+set cursorline
+set hlsearch " Highlight in search
+
+"colorscheme koehler
+"colorscheme slate
+colorscheme desert
+
+
+" set background=light
+set background=dark
+set laststatus=2  
+
+set ruler
+
+let g:vimspector_enable_mappings='HUMAN'
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" netrw file manager, :Explore open new instance
+" configure it like nerdtree
+" https://vonheikemen.github.io/devlog/tools/using-netrw-vim-builtin-file-explorer/
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:netrw_banner = 0
+let g:netrw_liststyle = 3
+
+let g:netrw_browse_split = 4
+" let g:netrw_browse_split = 0
+let g:netrw_altv = 1
+let g:netrw_winsize = 25
+let g:netrw_keepdir = 0
+let g:netrw_chgwin = -1
+
+let g:netrw_preview = 2
+let g:netrw_winsize=75
+
+" not work correctly
+" toggle with press a keyboard
+let g:netrw_list_hide = '^\..*'        " or anything you like
+let g:netrw_hide = 1                   " hide by default
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" pastemode
+set paste
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" change the direction of new splits
+" set splitbelow
+set splitright
+ 
+" zoom in/out split
+noremap zi <c-w>_ \| <c-w>\|
+noremap zo <c-w>=
+
+" copy between vim and system clipboard with yy, must enable +clipboard
+" vim --version | grep clipboard or :echo has('clipboard')
+set clipboard=unnamedplus
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" transparent bg
+" hi Normal guibg=NONE ctermbg=NONE
+" autocmd vimenter * hi Normal guibg=NONE ctermbg=NONE
+" hi Normal guibg=NONE ctermbg=NONE
+hi Normal guibg=NONE ctermbg=NONE
+autocmd vimenter * hi EndOfBuffer guibg=NONE ctermbg=NONE
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+
