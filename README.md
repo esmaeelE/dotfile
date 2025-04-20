@@ -1,5 +1,10 @@
 # dotfile
 
+## TODO
+- Use GNU stow to manage my dotfile files
+- 
+
+
 ## covert to Persian cal
 ```
 echo 2022-11-1 | pcal
