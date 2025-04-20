@@ -1,0 +1,37 @@
+# /home/esmaeel/.config/tmuxinator/dev.yml
+
+name: DEV
+
+windows:
+  - rust:
+      # layout: main-vertical
+      root: ~/dev/github/rust-by-example 
+      layout: main-horizental
+      panes:
+       - vim .
+       - echo "Debug & bash"
+  - programming:
+      # layout: main-vertical
+      root: ~/dev/github/programming
+      layout: main-horizental
+      panes:
+       - vim .
+  - bsd: 
+      # ssh to vm
+      ssh local_bsd
+      # root: ~/dev
+  - dev: 
+      # ssh to vm
+      ssh local_dev
+      # root: ~/dev
+  - proxy: proxy_ned           
+  - note_fast:
+      root: ~/
+      panes:
+        - vim 1.md
+  - work_push:
+      root: ~/dev/github/work_links
+      panes:
+        - vim .
+      
+
