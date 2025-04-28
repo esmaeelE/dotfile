@@ -2,8 +2,10 @@
 
 ## TODO
 - Use GNU stow to manage my dotfile files
-- 
-
+- combine three vimrc file
+- use danial configs with vim9script
+- generate three level of vim config, modular, basic, programming, link them
+- without plugin, add plugin in separate file
 
 ## covert to Persian cal
 ```
