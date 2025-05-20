@@ -73,6 +73,9 @@ clipm() {
 function onproxy() {
     export {http,https,ftp}_proxy="10.1.220.38:8080"
     export {HTTP,HTTPS,FTP}_PROXY="10.1.220.38:8080"
+    # for socks5 for exmaple tor or ssh tunnel
+    export {http,https,ftp}_proxy="socks5h://10.1.220.38:8080"
+    export {HTTP,HTTPS,FTP}_PROXY="socks5h://10.1.220.38:8080"
     export no_proxy="127.0.0.1"
     export NO_PROXY="127.0.0.1"
 #    export {HTTP,HTTPS,FTP}_PROXY="10.1.220.37:8080"
